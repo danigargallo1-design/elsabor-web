@@ -76,6 +76,7 @@ header::after {
     transform: translateY(-2px);
 }
 
+
 /* SECCIONES */
 .sections-buttons {
     display: grid;
@@ -272,6 +273,33 @@ button:active {
   opacity: 0.9;
 }
 
+.welcome {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: #f9f9f9; /* opcional, para separar del header */
+}
+
+.welcome h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.welcome p {
+  font-size: 16px;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .welcome h2 {
+    font-size: 20px;
+  }
+  
+  .welcome p {
+    font-size: 14px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -285,6 +313,10 @@ button:active {
         </div>
     </div>
 </header>
+<section class="welcome">
+  <h2>Bienvenidos a Bar [Nombre]</h2>
+  <p>Disfruta de nuestra carta y del mejor ambiente.</p>
+</section>
 
 <div class="sections-buttons" id="carta">
     <button style="background-image:url('https://www.bupasalud.com/sites/default/files/inline-images/bupa_598072389.jpg')"><span>Menús</span></button>
