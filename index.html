@@ -374,6 +374,13 @@ button:active {
 .sections-buttons.fade-in.show button:nth-child(5) { transition-delay: 0.5s; opacity:1; transform: translateY(0); }
 .sections-buttons.fade-in.show button:nth-child(6) { transition-delay: 0.6s; opacity:1; transform: translateY(0); }
 
+header {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  transition: background-position 0.2s;
+}
+
 </style>
 </head>
 <body>
@@ -518,6 +525,15 @@ document.addEventListener("DOMContentLoaded", () => {
   faders.forEach(fader => {
     appearOnScroll.observe(fader);
   });
+});
+</script>
+
+<script>
+const header = document.querySelector('header');
+window.addEventListener('scroll', () => {
+    let scroll = window.scrollY;
+    // Mueve la imagen solo un poco, factor 0.3
+    header.style.backgroundPosition = `center ${-scroll * 0.3}px`;
 });
 </script>
 
