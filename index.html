@@ -530,11 +530,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <script>
 const header = document.querySelector('header');
+let currentY = 0;
+let targetY = 0;
+const speed = 0.08; // cuanto más pequeño, más suave y lento
+
 window.addEventListener('scroll', () => {
-    let scroll = window.scrollY;
-    // Mueve la imagen solo un poco, factor 0.3
-    header.style.backgroundPosition = `center ${-scroll * 0.3}px`;
+    targetY = window.scrollY;
 });
+
+function animate() {
+    currentY += (targetY - currentY) * speed;
+    header.style.backgroundPosition = `center ${-currentY * 0.2}px`;
+    requestAnimationFrame(animate);
+}
+
+animate();
 </script>
 
 </body>
