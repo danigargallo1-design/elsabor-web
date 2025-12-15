@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restaurante El Sabor</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Playfair Display', serif;
+    background: #f5f5f5;
+    color: #1a1a1a;
+}
+
+* { box-sizing: border-box; }
+
+/* HEADER */
+header {
+    background: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.logo {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+}
+
+/* BOTONES DEL HEADER */
+.center-button {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.center-button button {
+    background: #1a1a1a;
+    color: #fff;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.center-button button:hover {
+    background: #333;
+    transform: translateY(-2px);
+}
+
+/* SECCIONES */
+.sections-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 900px;
+    margin: 60px auto;
+}
+
+.sections-buttons button {
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #fff;
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-size: cover;
+    background-position: center;
+}
+
+.sections-buttons button::before {
+    content: '';
+    position: absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.25);
+    transition: 0.3s;
+}
+
+.sections-buttons button:hover::before {
+    background: rgba(0,0,0,0.15);
+}
+
+.sections-buttons button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.sections-buttons button span { position: relative; z-index:2; }
+
+/* RESERVAS */
+section {
+    padding: 60px 40px;
+    text-align: center;
+}
+#reservas {
+    margin-top: 125px;
+}
+#carta {
+    scroll-margin-top: 30px; /* ajustar si quieres espacio extra */
+}
+
+#reservas {
+    margin-top: 120px;
+}
+
+section h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 35px;
+}
+
+#reservas button {
+    border-radius: 6px;
+    padding: 14px 32px;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#btnGmail { background: #1a1a1a; color:#fff; }
+#btnGmail:hover { background: #333; }
+
+#reservas button:nth-child(2) { background:#0a7d5c; color:#fff; }
+#reservas button:nth-child(2):hover { background:#128C7E; }
+
+form input, form textarea {
+    width: 80%;
+    padding: 14px;
+    margin: 12px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+form button {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+form button:hover { background: #333; }
+
+/* FOOTER */
+footer {
+    background: #111;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.95rem;
+}
+
+/* SCROLL TOP */
+#scrollTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: -70px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: #1a1a1a;
+    color: white;
+    font-size: 1.6rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.25);
+    transition: 0.5s, transform 0.3s;
+    z-index: 999;
+}
+
+#scrollTopBtn.show { right: 20px; animation: bounceIn 0.6s; }
+#scrollTopBtn:hover { transform: scale(1.1); background: #333; }
+
+@keyframes bounceIn {
+    0% { transform: translateY(50px); opacity:0;}
+    60% { transform: translateY(-10px); opacity:1;}
+    80% { transform: translateY(5px);}
+    100% { transform: translateY(0);}
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .center-button button { font-size: 1rem; padding: 12px 28px; }
+    .sections-buttons { grid-template-columns: 1fr; gap:20px; }
+    form input, form textarea { width: 90%; }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <div class="logo">El Sabor</div>
+        <div class="center-button">
+            <button onclick="document.getElementById('carta').scrollIntoView({behavior:'smooth'})">Ver Carta</button>
+            <button onclick="document.getElementById('reservas').scrollIntoView({behavior:'smooth'})">Reservar</button>
+        </div>
+    </div>
+</header>
+
+<div class="sections-buttons" id="carta">
+    <button style="background-image:url('https://www.bupasalud.com/sites/default/files/inline-images/bupa_598072389.jpg')"><span>Menús</span></button>
+    <button style="background-image:url('https://www.torredenunez.com/wp-content/uploads/2023/09/Bocadillos-especiales-1.jpg')"><span>Bocadillos</span></button>
+    <button style="background-image:url('https://images.aws.nestle.recipes/resized/2024_10_23T08_34_55_badun_images.badun.es_pastelitos_de_chocolate_blanco_y_queso_con_fresas_1290_742.jpg')"><span>Postres</span></button>
+    <button style="background-image:url('https://revistaiberica.com/wp-content/uploads/2023/05/bebidas.jpg')"><span>Bebidas</span></button>
+</div>
+
+<section id="reservas">
+    <h2>Reservas</h2>
+    <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+        <button id="btnGmail">Reservar por Gmail</button>
+        <button onclick="window.open('https://wa.me/34643613245','_blank')">Reservar por WhatsApp</button>
+    </div>
+
+    <form id="gmailForm" style="display:none; margin-top:20px; text-align:center;">
+        <input type="text" placeholder="Nombre" required><br>
+        <input type="email" placeholder="Correo electrónico" required><br>
+        <input type="date" required><br>
+        <input type="time" required><br>
+        <textarea placeholder="Comentarios adicionales" rows="4"></textarea><br>
+        <button type="submit">Reservar</button>
+    </form>
+</section>
+
+<section id="contacto">
+    <h2>Contacto</h2>
+    <p>Dirección: Calle Falsa 123, Ciudad</p>
+    <p>Teléfono: +34 643 613 245</p>
+    <p>Email: elsabor@gmail.com</p>
+</section>
+
+<!-- MAPA FINAL -->
+<section id="ubicacion">
+    <h2 style="text-align:center; margin-top:40px;">Ubicación</h2>
+    <div style="margin-top:20px; width:100%; max-width:900px; height:400px; margin-left:auto; margin-right:auto; border-radius:10px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.2);">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d711.5807514043701!2d-0.9007691767475043!3d41.694161702434016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses!2ses!4v1765813000042!5m2!1ses!2ses" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</section>
+
+
+<footer>
+    <p>© 2025 El Sabor. Todos los derechos reservados.</p>
+</footer>
+
+<button id="scrollTopBtn">↑</button>
+
+<script>
+const btnGmail = document.getElementById('btnGmail');
+const gmailForm = document.getElementById('gmailForm');
+
+btnGmail.addEventListener('click', () => {
+    if(gmailForm.style.display === 'none') {
+        gmailForm.style.display = 'block';
+        gmailForm.scrollIntoView({behavior:'smooth'});
+    } else {
+        gmailForm.style.display = 'none';
+    }
+});
+
+const scrollTopBtn = document.getElementById("scrollTopBtn");
+window.addEventListener("scroll", () => {
+    if(window.scrollY > 200){ 
+        scrollTopBtn.style.display="flex"; 
+        scrollTopBtn.classList.add("show");
+    } else { 
+        scrollTopBtn.classList.remove("show");
+        scrollTopBtn.style.display="none"; 
+    }
+});
+scrollTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top:0, behavior:"smooth" });
+});
+</script>
+
+</body>
+</html>
