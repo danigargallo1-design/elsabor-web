@@ -471,6 +471,57 @@ header {
     100% { left: 125%; }
 }
 
+@media (max-width: 768px) {
+  header {
+    background-attachment: scroll !important;
+  }
+}
+@media (max-width: 768px) {
+  .sections-buttons button {
+    min-height: 120px;
+  }
+
+  .sections-buttons button span {
+    background: rgba(0,0,0,0.45);
+    padding: 6px 10px;
+    border-radius: 6px;
+  }
+}
+@media (max-width: 768px) {
+  #btnWhatsapp {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: calc(100% - 40px);
+    max-width: 360px;
+  }
+}
+@media (max-width: 768px) {
+  #scrollTopBtn {
+    bottom: 90px;
+    width: 44px;
+    height: 44px;
+    font-size: 1.3rem;
+  }
+}
+@media (max-width: 768px) {
+  #modalCarta img {
+    width: 95%;
+    height: auto;
+    max-height: 85vh;
+  }
+}
+input, textarea, button {
+  font-size: 16px;
+}
+@media (max-width: 768px) {
+  .sections-buttons button:hover {
+    transform: none;
+  }
+}
+
 </style>
 </head>
 <body>
