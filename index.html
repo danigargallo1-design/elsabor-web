@@ -466,60 +466,115 @@ header {
     animation: none; /* reset cuando no está hover */
 }
 
-@keyframes shine {
-    0% { left: -75%; }
-    100% { left: 125%; }
-}
+/* ============================= */
+/* ===== OPTIMIZACIÓN MÓVIL ===== */
+/* ============================= */
 
 @media (max-width: 768px) {
+
+  /* HEADER */
   header {
-    background-attachment: scroll !important;
+    height: 400px;
+    background-attachment: scroll;
   }
-}
-@media (max-width: 768px) {
+
+  .logo {
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+  }
+
+  .center-button {
+    gap: 14px;
+  }
+
+  .center-button button {
+    font-size: 1rem;
+    padding: 12px 26px;
+    width: 220px;
+  }
+
+  /* SECCIÓN BIENVENIDA */
+  .welcome {
+    padding: 45px 15px;
+  }
+
+  .welcome h2 {
+    font-size: 20px;
+  }
+
+  .welcome p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* BOTONES CARTA */
+  .sections-buttons {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+    margin: 30px auto;
+  }
+
   .sections-buttons button {
     min-height: 120px;
+    padding: 0;
+    font-size: 14px;
+    transform: none;
+  }
+
+  .sections-buttons button:hover {
+    transform: none;
+    box-shadow: none;
   }
 
   .sections-buttons button span {
+    font-size: 14px;
     background: rgba(0,0,0,0.45);
     padding: 6px 10px;
     border-radius: 6px;
   }
-}
-@media (max-width: 768px) {
+
+  /* SECCIONES GENERALES */
+  section {
+    padding: 45px 15px;
+  }
+
+  section h2 {
+    font-size: 1.8rem;
+  }
+
+  /* FORMULARIOS */
+  form input,
+  form textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  /* BOTÓN WHATSAPP FIJO */
   #btnWhatsapp {
     position: fixed;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1000;
     width: calc(100% - 40px);
     max-width: 360px;
+    z-index: 1000;
   }
-}
-@media (max-width: 768px) {
+
+  /* SCROLL TOP */
   #scrollTopBtn {
     bottom: 90px;
     width: 44px;
     height: 44px;
     font-size: 1.3rem;
   }
-}
-@media (max-width: 768px) {
+
+  /* MODAL CARTA */
   #modalCarta img {
     width: 95%;
-    height: auto;
     max-height: 85vh;
   }
-}
-input, textarea, button {
-  font-size: 16px;
-}
-@media (max-width: 768px) {
-  .sections-buttons button:hover {
-    transform: none;
-  }
+
 }
 
 </style>
