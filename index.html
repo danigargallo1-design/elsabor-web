@@ -679,6 +679,153 @@ footer {
     transform: translateY(0);
   }
 }
+
+/* ===================== */
+/* MOBILE FIX DEFINITIVO */
+/* ===================== */
+@media (max-width: 600px) {
+
+  /* HEADER */
+  header {
+    height: 100svh;
+    min-height: 100svh;
+    background-position: center top;
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+
+  .center-button button {
+    width: 100%;
+    max-width: 280px;
+    padding: 14px 0;
+  }
+
+  /* TEXTO GENERAL */
+  section h2 {
+    font-size: 1.6rem;
+  }
+
+  .welcome h2 {
+    font-size: 1.4rem;
+  }
+
+  .welcome p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  /* BOTONES CARTA */
+  .sections-buttons {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin: 40px auto;
+  }
+
+  .sections-buttons button {
+    padding: 90px 0;
+    font-size: 1.1rem;
+  }
+
+  /* SECCIONES */
+  section {
+    padding: 40px 15px;
+  }
+
+  /* MAPA */
+  #ubicacion div {
+    height: 260px;
+  }
+
+  /* RESEÑAS */
+  .resena {
+    padding: 16px;
+  }
+
+  .valoracion {
+    font-size: 1.1rem;
+  }
+
+  /* FORMULARIOS */
+  form input,
+  form textarea {
+    font-size: 16px; /* evita zoom iOS */
+  }
+
+  /* MODAL CARTA */
+  #modalCarta img {
+    max-width: 95%;
+    max-height: 85%;
+  }
+
+  #cerrarModal {
+    top: 15px;
+    right: 20px;
+    font-size: 2.2rem;
+  }
+
+  /* BOTÓN WHATSAPP (NO FIJO) */
+  #reservas #btnWhatsapp {
+    width: 100%;
+    max-width: 320px;
+    margin: 20px auto 0;
+    position: static;
+    transform: none;
+  }
+}
+
+/* ===================== */
+/* HORARIOS */
+/* ===================== */
+#horarios {
+  background: #f4f4f4;
+  text-align: center;
+}
+
+.horarios-box {
+  max-width: 520px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+.horarios-box .dia {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 22px;
+  font-size: 0.95rem;
+  border-bottom: 1px solid #eee;
+}
+
+.horarios-box .dia:last-child {
+  border-bottom: none;
+}
+
+.horarios-box span {
+  color: #666;
+}
+
+.horarios-box strong {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .horarios-box {
+    margin: 0 10px;
+  }
+
+  .horarios-box .dia {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -724,6 +871,25 @@ document.getElementById('btnWhatsapp').addEventListener('click', () => {
 </script>
 </div>
 </section>
+<section id="horarios" class="fade-in">
+  <h2>Horario de Apertura</h2>
+
+  <div class="horarios-box">
+    <div class="dia">
+      <span>Lunes a Viernes</span>
+      <strong>7:00 – 18:00</strong>
+    </div>
+    <div class="dia">
+      <span>Sábados</span>
+      <strong>8:30 – 14:00</strong>
+    </div>
+    <div class="dia">
+      <span>Domingos y Festivos</span>
+      <strong>Cerrado</strong>
+    </div>
+  </div>
+</section>
+
 
 <section id="contacto" class="fade-in">
     <h2>Contacto</h2>
@@ -1059,13 +1225,7 @@ cerrarModal.addEventListener('click', () => modal.style.display='none');
 modal.addEventListener('click', e => { if(e.target===modal) modal.style.display='none'; });
 </script>
 
-<!-- Modal -->
-<div id="modalCarta" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:1000;">
-    <span id="cerrarModal" style="position:absolute; top:20px; right:30px; font-size:2rem; color:white; cursor:pointer;">&times;</span>
-    <img id="imagenCarta" src="" style="max-width:90%; max-height:90%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.5);">
-</div>
+
 
 </body>
 </html>
-
-
